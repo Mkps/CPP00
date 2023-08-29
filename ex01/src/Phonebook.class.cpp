@@ -1,6 +1,5 @@
  
 #include "../inc/Phonebook.class.hpp"
-#include "../inc/Contact.class.hpp"
 
 Phonebook::Phonebook() : listing(){
 	current_index = 0;

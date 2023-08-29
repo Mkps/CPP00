@@ -1,5 +1,12 @@
 #include "../inc/Contact.class.hpp"
 
+Contact::Contact() {
+	this->current_index = -1;
+	this->first_name = "(null)";
+	this->last_name = "(null)";
+	this->nickname = "(null)";
+}
+
 static std::string format_str(std::string str)
 {
 	if (str.size() > 10)
@@ -13,12 +20,6 @@ static std::string format_str(std::string str)
 		str.insert(0, " ");
 	}
 	return (str);
-}
-Contact::Contact() {
-	this->current_index = -1;
-	this->first_name = "(null)";
-	this->last_name = "(null)";
-	this->nickname = "(null)";
 }
 
 void	Contact::SetFirstName(void)
