@@ -1,5 +1,9 @@
 #include "Account.hpp"
+#include <bits/types/struct_tm.h>
 # include <iostream>
+# include <ctime>
+#include <string>
+# include <time.h>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -8,13 +12,15 @@ int	Account::_totalNbWithdrawals = 0;
 
 Account::Account( int initial_deposit )
 {
-	this->_amount = initial_deposit;
+	// this->_amount = initial_deposit;
+	// Account::_displayTimestamp();
 }
 
 Account::~Account( void )
 {
+	Account::_displayTimestamp();
 }
-
+	
 int	Account::getNbAccounts( void )
 {
 	return (Account::_nbAccounts);
@@ -35,15 +41,40 @@ int	Account::getNbWithdrawals( void )
 	return (Account::_totalNbWithdrawals);
 }
 
-void	Account::displayAccountsInfos( void )
+void	Account::displayAccountsInfos(void)
 {
-	std::cout << "accounts:" << Account::_nbAccounts << ";";
-	std::cout << "total:" << Account::_totalAmount << ";";
-	std::cout << "deposits:" << Account::_totalNbDeposits << ";";
-	std::cout << "withdrawals:" << Account::_totalNbWithdrawals << std::endl;
+	std::cout << "accounts:" << Account::getNbAccounts() << ";";
+	std::cout << "total:" << Account::getTotalAmount() << ";";
+	std::cout << "deposits:" << Account::getNbDeposits() << ";";
+	std::cout << "withdrawals:" << Account::getNbWithdrawals() << std::endl;
 }
 
-void	makeDeposit( int deposit );
-bool	makeWithdrawal( int withdrawal );
-int		checkAmount( void ) const;
-void	displayStatus( void ) const;
+void	makeDeposit( int deposit )
+{
+}
+// bool	makeWithdrawal( int withdrawal );
+// int		checkAmount( void ) const;
+// void	displayStatus( void ) const;
+static std::string	DateString(void)
+{
+	time_t rawtime;
+	struct tm *timeinfo;
+	char buffer[17];
+	time (&rawtime);
+	timeinfo = localtime(&rawtime);
+	strftime(buffer, 17, "%G%m%e_%H%M%S", timeinfo);
+	return (std::string(buffer));
+
+}
+
+void	Account::_displayTimestamp(void)
+{
+	std::cout << "["<< DateString() << "] ";
+}
+//
+// int main(void)
+// {
+// 	Account account(100);
+//
+// 	return (0);
+// }
