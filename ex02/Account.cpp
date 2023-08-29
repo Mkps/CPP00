@@ -8,7 +8,11 @@ Account::Account( int initial_deposit )
 Account::~Account( void )
 {
 }
-static int	getNbAccounts( void );
+
+int	Account::getNbAccounts( void )
+{
+	return (Account::_nbAccounts);
+}
 static int	getTotalAmount( void );
 static int	getNbDeposits( void );
 static int	getNbWithdrawals( void );
