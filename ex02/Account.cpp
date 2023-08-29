@@ -13,10 +13,23 @@ int	Account::getNbAccounts( void )
 {
 	return (Account::_nbAccounts);
 }
+
 int	Account::getTotalAmount( void )
 {
 	return (Account::_totalAmount);
 }
-static int	getNbDeposits( void );
-static int	getNbWithdrawals( void );
-static void	displayAccountsInfos( void );
+
+int	Account::getNbDeposits( void )
+{
+	return (Account::_totalNbDeposits);
+}
+
+int	Account::getNbWithdrawals( void )
+{
+	return (Account::_totalNbWithdrawals);
+}
+
+void	Account::displayAccountsInfos( void )
+{
+
+}
