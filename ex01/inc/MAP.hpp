@@ -3,5 +3,9 @@
 
 # include "Contact.class.hpp"
 # include "Phonebook.class.hpp"
+# include <string.h>
+# include <iomanip>
+# include <limits>
+# include <iostream>
 
 #endif

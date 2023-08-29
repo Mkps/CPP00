@@ -1,8 +1,5 @@
 #include "../inc/MAP.hpp"
-#include <string.h>
-#include <iomanip>
-#include <limits>
-#include <iostream>
+
 int main(void)
 {
 	Phonebook	PB;

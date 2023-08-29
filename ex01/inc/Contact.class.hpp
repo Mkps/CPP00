@@ -2,7 +2,9 @@
 # define CONTACT_CLASS_HPP
 
 # include <iostream> 
-#include <string>
+# include <string>
+# include <iomanip>
+# include <limits>
 
 class Contact {
 public:

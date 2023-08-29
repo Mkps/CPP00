@@ -3,6 +3,9 @@
 # define PHONEBOOK_CLASS_HPP
 
 # include <iostream> 
+# include <string>
+# include <iomanip>
+# include <limits>
 # include "Contact.class.hpp"
 
 class Phonebook {

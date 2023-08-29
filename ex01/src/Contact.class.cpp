@@ -1,7 +1,5 @@
 #include "../inc/Contact.class.hpp"
-#include <string>
-#include <iomanip>
-#include <limits>
+
 static std::string format_str(std::string str)
 {
 	if (str.size() > 10)
