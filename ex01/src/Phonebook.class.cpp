@@ -7,7 +7,7 @@ Phonebook::Phonebook() : listing(){
 }
 
 Phonebook::~Phonebook() {
-	std::cout << "Goodbye !" << std::endl;
+	std::cout << "Thank you for using MyAwesomePhonebook !" << std::endl;
 }
 
 void	Phonebook::AddContact(void)
