@@ -15,7 +15,7 @@ $(NAME):
 	$(CC) -o $(NAME) $(SRC)
 
 clean:
-	rm -rf $(OBJ_DIR)
+	echo "No object files to clean"
 
 fclean: clean
 	rm -f $(NAME)
