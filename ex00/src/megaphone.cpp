@@ -5,7 +5,7 @@ void StrToUpper(char *str)
 {
 	while (*str)
 	{
-		std::cout << (unsigned char)toupper(*str);
+		std::cout << (unsigned char)std::toupper(*str);
 		str++;
 	}
 }
