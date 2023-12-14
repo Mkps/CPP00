@@ -6,7 +6,7 @@ INC_DIR = inc/
 
 OBJ_DIR = build/
 
-SRC_FILES = main.cpp
+SRC_FILES = megaphone.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
