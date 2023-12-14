@@ -7,6 +7,9 @@ Contact::Contact() {
 	this->nickname = "(null)";
 }
 
+Contact::~Contact() {
+}
+
 static std::string format_str(std::string str)
 {
 	if (str.size() > 10)
@@ -22,72 +25,96 @@ static std::string format_str(std::string str)
 	return (str);
 }
 
-void	Contact::SetFirstName(void)
+static void AbortMsg(void)
+{
+    std::cout << "(aborted)" << std::endl;
+}
+
+int Contact::SetFirstName(void)
 {
 	this->first_name.clear();	
 	while (this->first_name.empty())
 	{
-		std::cout << "First name: ";
-		std::getline(std::cin, this->first_name);
+        if (std::cin.good())
+		    std::cout << "First name: ";
+		if (!std::getline(std::cin, this->first_name))
+            return (AbortMsg(), 1);
 		if (this->first_name.empty())
 			std::cout << "Please input a value\n";
 	}
+    return (0);
 }
-void	Contact::SetLastName(void)
+int Contact::SetLastName(void)
 {
 	this->last_name.clear();	
 	while (this->last_name.empty())
 	{
-		std::cout << "Last name: ";
-		std::getline(std::cin, this->last_name);
+        if (std::cin.good())
+		    std::cout << "Last name: ";
+		if (!std::getline(std::cin, this->last_name))
+            return (AbortMsg(), 1);
 		if (this->last_name.empty())
 			std::cout << "Please input a value\n";
 	}
+    return (0);
 }
 
-void	Contact::SetNickName(void)
+int Contact::SetNickName(void)
 {
 	this->nickname.clear();	
 	while (this->nickname.empty())
 	{
-		std::cout << "Nickname: ";
-		std::getline(std::cin, this->nickname);
+        if (std::cin.good())
+		    std::cout << "Nickname: ";
+		if (!std::getline(std::cin, this->nickname))
+            return (AbortMsg(), 1);
 		if (this->nickname.empty())
 			std::cout << "Please input a value\n";
 	}
+    return (0);
 }
-void	Contact::SetPhoneNumber(void)
+
+int Contact::SetPhoneNumber(void)
 {
 	this->phone_number.clear();	
 	while (this->phone_number.empty())
 	{
-		std::cout << "Phone number: ";
-		std::getline(std::cin, this->phone_number);
+        if (std::cin.good())
+		    std::cout << "Phone number: ";
+		if (!std::getline(std::cin, this->phone_number))
+            return (AbortMsg(), 1);
 		if (this->phone_number.empty())
 			std::cout << "Please input a value\n";
 	}
+    return (0);
 }
-void	Contact::SetDarkestSecret(void)
+
+int Contact::SetDarkestSecret(void)
 {
 	this->darkest_secret.clear();	
 	while (this->darkest_secret.empty())
 	{
-		std::cout << "Darkest Secret: ";
-		std::getline(std::cin, this->darkest_secret);
+        if (std::cin.good())
+		    std::cout << "Darkest Secret: ";
+		if (!std::getline(std::cin, this->darkest_secret))
+            return (AbortMsg(), 1);
 		if (this->darkest_secret.empty())
 			std::cout << "Please input a value\n";
 	}
+    return (0);
 }
+
 void Contact::SetIndex(int index)
 {
 	this->current_index = index;
 }
 
-std::string Contact::GetFirstName(void)
+const std::string &Contact::GetFirstName(void) const
 {
 	return (this->first_name);
 }
-void	Contact::DisplayContact(void)
+
+void	Contact::DisplayContact(void) const
 {
 	std::cout << std::left << std::setw(18) << std::setfill(' ');
 	std::cout << "First name:" << this->first_name << "\n";
@@ -102,15 +129,13 @@ void	Contact::DisplayContact(void)
 
 }
 
-void	Contact::DisplaySummary(void)
+void	Contact::DisplaySummary(void) const
 {
 	if (this->current_index == -1)
 		return ;
-	std::cout << this->current_index + 1 << "|";
+	std::cout << "         " << this->current_index + 1 << "|";
 	std::cout << format_str(this->first_name) << "|";
 	std::cout << format_str(this->last_name) << "|";
-	std::cout << format_str(this->nickname) << "|" << std::endl;
+	std::cout << format_str(this->nickname) << std::endl;
 
-}
-Contact::~Contact() {
 }

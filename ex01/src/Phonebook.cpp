@@ -20,22 +20,27 @@ void	Phonebook::AddContact(void)
 	i = this->current_index;
 	std::cout << "//** CREATING NEW CONTACT **//\n";
 	this->listing[i].SetIndex(i);
-	this->listing[i].SetFirstName();
-	this->listing[i].SetLastName();
-	this->listing[i].SetNickName();
-	this->listing[i].SetPhoneNumber();
-	this->listing[i].SetDarkestSecret();
+	if (this->listing[i].SetFirstName())
+        return ;
+	if (this->listing[i].SetLastName())
+        return ;
+	if (this->listing[i].SetNickName())
+        return ;
+	if (this->listing[i].SetPhoneNumber())
+        return ;
+	if (this->listing[i].SetDarkestSecret())
+        return ;
 	std::cout << "//** NEW CONTACT SUCCESSFULLY CREATED **//\n";
 	this->current_index++;
 }
 void	Phonebook::DisplayAllContacts(void)
 {
-	std::cout << "#| FirstName|  LastName|  Nickname|" << std::endl;
+	std::cout << "     Index| FirstName|  LastName|  Nickname" << std::endl;
 	for (int i = 0; i < 8; i++)
 		this->listing[i].DisplaySummary();
 }
 
-Contact Phonebook::SearchContact(int index)
+const Contact & Phonebook::SearchContact(int index)
 {
 	return (this->listing[index - 1]);
 }
