@@ -1,5 +1,5 @@
  
-#include "../inc/Phonebook.class.hpp"
+#include "../inc/Phonebook.hpp"
 
 Phonebook::Phonebook() : listing(){
 	current_index = 0;

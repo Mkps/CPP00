@@ -1,4 +1,4 @@
-#include "../inc/Contact.class.hpp"
+#include "../inc/Contact.hpp"
 
 Contact::Contact() {
 	this->current_index = -1;

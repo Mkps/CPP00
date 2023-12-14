@@ -7,8 +7,8 @@ INC_DIR = inc/
 OBJ_DIR = build/
 
 SRC_FILES = main.cpp \
-			Contact.class.cpp \
-			Phonebook.class.cpp
+			Contact.cpp \
+			Phonebook.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
